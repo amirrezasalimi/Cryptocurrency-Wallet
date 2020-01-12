@@ -1,4 +1,4 @@
-# wallet_app
+# Cryptocurrency Wallet
 
 A new Flutter project.
 

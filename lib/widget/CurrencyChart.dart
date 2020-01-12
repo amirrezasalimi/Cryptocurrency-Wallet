@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class CurrencyChart extends CustomPainter {
@@ -33,17 +31,12 @@ class CurrencyChart extends CustomPainter {
       Offset of = Offset(((i + 1) * _size), areaHeight - (item));
       if (i != 0) {
         p.lineTo(of.dx, of.dy);
-        double last = this.data[i - 1];
-        Offset lastitem = Offset(((i + 1) * _size), areaHeight - (last));
       }
       i++;
     });
     canvas.translate(marginSides, 0);
     canvas.drawPath(p, line);
-
     var shadow = p;
-    // shadow.addPath(Path(), Offset(0, 15));
-
     canvas.translate(0, 5);
     canvas.drawPath(
         shadow,
@@ -51,13 +44,8 @@ class CurrencyChart extends CustomPainter {
           ..color = color.withOpacity(0.6)
           ..style = PaintingStyle.stroke
           ..strokeWidth = 3
-          ..maskFilter = MaskFilter.blur(BlurStyle.normal, 3)
-   
-          
-          );
-    //canvas.drawShadow(shadow, color.withOpacity(0.5), 12.0, true);
+          ..maskFilter = MaskFilter.blur(BlurStyle.normal, 3));
   }
-
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
     return true;
